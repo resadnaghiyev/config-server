@@ -1,3 +1,5 @@
+resad:
+  port: dev-profile-from-specific
 eureka:
   client:
     serviceUrl:
@@ -12,5 +14,3 @@ spring:
   zipkin:
     base-url: http://zipkin:9411
     
-resad:
-  port: docker-profile-from-specific
