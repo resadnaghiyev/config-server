@@ -1,4 +1,19 @@
-resad:
-  config:
-    port: 1234 
-    host: testing-config-server
+spring:
+  sleuth:
+    integration:
+      enabled: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://localhost:9411
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:password@localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
