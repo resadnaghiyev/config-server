@@ -1,9 +1,4 @@
-eureka:
-  instance:
-    preferIpAddress: true 
-    hostname: eureka-0
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
+resad:
+  config:
+    port: 1234 
+    host: testing-config-server
