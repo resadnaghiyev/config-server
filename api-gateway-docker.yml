@@ -1,2 +1,16 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:password@discovery-server:8761/eureka
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/spring-microservices-full
+  zipkin:
+    base-url: http://zipkin:9411
+    
 resad:
   port: docker-profile-from-specific
