@@ -1,2 +1,2 @@
-# resad:
-#   port: default-profile-from-specific-bb
+resad:
+  port: default-profile-from-specific-bb
