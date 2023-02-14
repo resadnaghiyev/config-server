@@ -1,16 +1,40 @@
-resad:
-  port: dev-profile-from-specific
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka:password@discovery-server:8761/eureka
-
+server:
+  port: 8090
 spring:
+  main:
+    web-application-type: reactive
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:8080/realms/spring-microservices-full
-  zipkin:
-    base-url: http://zipkin:9411
+          issuer-uri: http://localhost:8080/realms/spring-microservices-full
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/api/product
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/api/order
+        - id: discovery-server
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/
+        - id: discovery-server-static
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
+logging:
+  level:
+    root: info
+    org.springframework.cloud.gateway.route.RouteDefinitionLocator: info
+    org.springframework.cloud.gateway: trace
+resad:
+  cp: default-profile-from-specific 
+
     
