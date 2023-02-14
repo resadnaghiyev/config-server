@@ -35,6 +35,6 @@ logging:
     org.springframework.cloud.gateway.route.RouteDefinitionLocator: info
     org.springframework.cloud.gateway: trace
 resad:
-  cp: default-profile-from-specific 
+  cp: dev-profile-from-specific 
 
     
